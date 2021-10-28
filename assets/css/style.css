@@ -1,10 +1,108 @@
+/********************** Google font  **********************/
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap");
 
+/********************** Css variable  **********************/
+:root {
+  --bg-color: #101d40;
+  --primary-color: #015ea7;
+  --secondary-color: #d9114a;
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #001f27;
+}
+
+/********************** Main css  **********************/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-body {
   font-family: "Jost", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--primary-text-color);
+}
+
+.clock {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.clock__wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.clock__count-box {
+  width: 200px;
+  height: 180px;
+  background-color: var(--primary-color);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent, rgba(0, 0, 0, 0.301));
+}
+.clock__count-box:nth-child(3) {
+  background-color: var(--secondary-color);
+}
+.clock__count-box .clock__hours,
+.clock__count-box .clock__minutes,
+.clock__count-box .clock__seconds {
+  font-size: 70px;
+  background-color: transparent;
+  font-weight: 400;
+  margin-top: 25px;
+}
+
+.clock__count-box .clock__text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.144);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 8px 0;
+  letter-spacing: 1px;
+}
+.clock__ampm-box {
+  width: 80px;
+  height: 50px;
+  background-color: var(--primary-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent, rgba(0, 0, 0, 0.301));
+}
+
+.clock__ampm-box .clock__text-ampm {
+  background-color: transparent;
+  color: var(--bg-color);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+  .clock__count-box {
+    width: 150px;
+    height: 140px;
+  }
+  .clock__count-box .clock__hours,
+  .clock__count-box .clock__minutes,
+  .clock__count-box .clock__seconds {
+    font-size: 60px;
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .clock__wrapper {
+    flex-direction: column;
+  }
+  .clock__count-box {
+    -webkit-box-reflect: unset;
+  }
 }
